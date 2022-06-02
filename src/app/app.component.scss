@@ -1,0 +1,18 @@
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 3rem auto 3rem;
+}
+
+app-header {
+  grid-row: 1;
+}
+
+.content {
+  grid-row: 2;
+  padding: 1rem;
+}
+
+app-footer {
+  grid-row: 3;
+}

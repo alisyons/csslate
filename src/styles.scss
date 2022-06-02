@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Variables */
+:root {
+  --blue-300: #5D99C6;
+  --blue-200: #90CAF9;
+  --blue-100: #C3FDFF;
+}
+
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.code {
+  font-family: Courier;
+}
+
+body {
+  margin: 0;
+}
