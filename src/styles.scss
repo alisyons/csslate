@@ -5,7 +5,13 @@
   --blue-300: #5D99C6;
   --blue-200: #90CAF9;
   --blue-100: #C3FDFF;
+  --dark-purple: #292933;
+  --pink-100: #FFC1E3;
+  --pink-200: #F48FB1;
+  --pink-300: #F48FB1;
 }
+
+/* Typograpgy */
 
 * {
   font-family: 'Work Sans', sans-serif;
@@ -25,6 +31,28 @@ h2 {
   font-family: Courier;
 }
 
+/* Layout */
+
 body {
   margin: 0;
+}
+
+/* Components */
+
+.button-primary {
+  height: 2.5rem;
+  min-width: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: var(--blue-300);
+  color: white;
+  border-radius: 17px;
+  font-weight: 700;
+  box-shadow: none;
+  border: none;
+}
+
+.button-primary:focus {
+  outline: midnightblue solid 2px;
+  transition: outline 0.3s ease-in;
 }

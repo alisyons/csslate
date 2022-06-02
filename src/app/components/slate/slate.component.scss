@@ -1,0 +1,29 @@
+.wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+  .left {
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 50% 50%;
+
+    .slate {
+      grid-row: 1;
+    }
+
+    .editor {
+      grid-row: 2;
+      background-color: #292933;
+
+      .code {
+        color: white;
+      }
+    }
+
+  }
+
+  .right {
+    grid-column: 2;
+  }
+}
