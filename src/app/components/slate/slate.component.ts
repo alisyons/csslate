@@ -26,7 +26,22 @@ export class SlateComponent implements OnInit {
         };
     })
 
-    console.log(this.levelArray);
+    this.getCurrentLevel();
+  }
+
+  public getCurrentLevel() {
+    let foundLevel;
+
+    if(this.levelArray) {
+      foundLevel = this.levelArray.filter(e => {
+        return e.level === 0 && e.chapter === 1;
+      })
+
+      if (foundLevel.length === 1) {
+        this.currentLevel = foundLevel[0];
+      }
+      console.log(this.currentLevel)
+    }
   }
 
 }

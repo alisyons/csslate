@@ -1,14 +1,15 @@
 <div class="wrapper">
   <div class="left">
     <div class="slate">
-      This is the slate.
+      <app-board [currentLevel]="currentLevel"></app-board>
     </div>
     <div class="editor">
-      <div class="code">This is the editor</div>
+      <app-editor [currentLevel]="currentLevel"></app-editor>
     </div>
   </div>
   <div class="intruction right">
-    <app-instructions></app-instructions>
+    <app-instructions
+    [currentLevel]="currentLevel"></app-instructions>
   </div>
 </div>
 

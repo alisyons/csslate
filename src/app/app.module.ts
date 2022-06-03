@@ -8,6 +8,8 @@ import { OnboardingComponent } from './components/onboarding/onboarding.componen
 import { FooterComponent } from './shared/footer/footer.component';
 import { SlateComponent } from './components/slate/slate.component';
 import { InstructionsComponent } from './components/slate/instructions/instructions.component';
+import { EditorComponent } from './components/slate/editor/editor.component';
+import { BoardComponent } from './components/slate/board/board.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { InstructionsComponent } from './components/slate/instructions/instructi
     OnboardingComponent,
     FooterComponent,
     SlateComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    EditorComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,

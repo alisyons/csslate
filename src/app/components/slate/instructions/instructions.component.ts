@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Level} from "../../../shared/level";
 
 @Component({
   selector: 'app-instructions',
@@ -11,7 +12,7 @@ export class InstructionsComponent implements OnInit {
   chapter: number = 100;
 
   @Input()
-  level: number = 100;
+  currentLevel: Level | undefined;
 
   constructor() { }
 
