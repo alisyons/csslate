@@ -1,0 +1,28 @@
+.code {
+  color: white;
+}
+
+.editor-wrapper {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: 50% 50%;
+  height: 100%;
+
+  .html-code {
+    grid-column: 1;
+    margin-right: 1rem;
+    padding: 1rem;
+    height: 100%;
+    border-right: #F48FB1 3px solid;
+  }
+
+  .css-code {
+    grid-column: 2;
+    padding: 1rem;
+  }
+
+}
+
+.is-div {
+  color: #F48FB1;
+}

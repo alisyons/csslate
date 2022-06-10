@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Level} from "../../../shared/level";
+import {SharedService} from "../../../shared/shared.service";
 
 @Component({
   selector: 'app-editor',
@@ -11,9 +12,40 @@ export class EditorComponent implements OnInit {
   @Input()
   currentLevel: Level | undefined;
 
-  constructor() { }
+  snippetLength = 0;
+  solution = '';
+
+  constructor(
+    public sharedService: SharedService
+  ) {
+  }
 
   ngOnInit(): void {
+    if (this.currentLevel) {
+      this.snippetLength = this.currentLevel.cssSnippets.length;
+      this.sharedService.cssSolution = this.currentLevel.cssSnippets;
+    }
+  }
+
+  public compileSolution(text: string) {
+    if (this.currentLevel) {
+      this.currentLevel.cssSnippets.pop();
+
+      if(this.currentLevel.cssSnippets.length == this.snippetLength - 1) {
+        this.currentLevel.cssSnippets.push(text);
+        this.currentLevel.cssSnippets.push('}');
+      } else {
+        this.currentLevel.cssSnippets.pop();
+        this.currentLevel.cssSnippets.push(text);
+        this.currentLevel.cssSnippets.push('}');
+      }
+
+      this.sharedService.cssSolution = this.currentLevel.cssSnippets;
+      this.sharedService.compileSolution();
+      console.log(this.sharedService.cssSolution);
+    }
   }
 
 }
+
+

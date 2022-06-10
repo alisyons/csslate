@@ -22,7 +22,9 @@ export class SlateComponent implements OnInit {
         {
           name: xx.name,
           chapter: xx.chapter,
-          level: xx.number
+          level: xx.number,
+          htmlSnippets: xx.htmlSnippets,
+          cssSnippets: xx.cssSnippets
         };
     })
 

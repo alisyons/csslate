@@ -10,6 +10,7 @@ import { SlateComponent } from './components/slate/slate.component';
 import { InstructionsComponent } from './components/slate/instructions/instructions.component';
 import { EditorComponent } from './components/slate/editor/editor.component';
 import { BoardComponent } from './components/slate/board/board.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,10 +23,11 @@ import { BoardComponent } from './components/slate/board/board.component';
     EditorComponent,
     BoardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

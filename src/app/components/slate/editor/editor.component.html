@@ -1,1 +1,20 @@
-<p>editor works!</p>
+<div class="code editor-wrapper">
+  <div class="html-code">
+    <div
+      [ngClass]="{
+      'is-div': snippet.includes('div')
+      }"
+      *ngFor="let snippet of currentLevel?.htmlSnippets" class="code">{{snippet}}</div>
+  </div>
+  <div class="css-code">
+    <ng-container *ngFor="let css of currentLevel?.cssSnippets; let i = index"
+                  class="code">
+      <div *ngIf="i < snippetLength-1">
+        {{css}}
+      </div>
+    </ng-container>
+    <textarea
+      [(ngModel)]="solution" (input)="compileSolution(solution)"></textarea>
+    <div>}</div>
+  </div>
+</div>
