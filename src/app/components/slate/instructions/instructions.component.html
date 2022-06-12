@@ -1,6 +1,21 @@
 <div class="instructions-wrapper">
-  <p>Chapter {{currentLevel?.chapter}}</p>
-  <p>Level {{currentLevel?.level}}</p>
-  <p>{{currentLevel?.name}}</p>
+  <div class="instructions-text">
+    <p>Chapter {{currentLevel?.chapter}}</p>
+    <p>Level {{currentLevel?.level}}</p>
+    <p>{{currentLevel?.name}}</p>
+    <br>
+    <div [innerHTML]="currentLevel?.description">
+    </div>
+  </div>
+  <div class="instructions-buttons">
+    <button class="button-primary">
+      Previous level
+    </button>
+    <button
+      [disabled]="!sharedService.isSolutionValid"
+      class="button-primary">
+      Next level
+    </button>
+  </div>
 </div>
 

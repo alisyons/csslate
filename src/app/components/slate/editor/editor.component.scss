@@ -26,3 +26,11 @@
 .is-div {
   color: #F48FB1;
 }
+
+textarea {
+  resize: none;
+  background-color: var(--pink-300);
+  color: white;
+  font-family: Courier;
+  width: 100%;
+}

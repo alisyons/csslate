@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Level} from "../../../shared/level";
+import {SharedService} from "../../../shared/shared.service";
 
 @Component({
   selector: 'app-instructions',
@@ -14,7 +15,9 @@ export class InstructionsComponent implements OnInit {
   @Input()
   currentLevel: Level | undefined;
 
-  constructor() { }
+  constructor(
+    public sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
   }

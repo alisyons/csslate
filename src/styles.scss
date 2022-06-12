@@ -8,7 +8,7 @@
   --dark-purple: #292933;
   --pink-100: #FFC1E3;
   --pink-200: #F48FB1;
-  --pink-300: #F48FB1;
+  --pink-300: #BF5F82;
 }
 
 /* Typograpgy */
@@ -55,4 +55,18 @@ body {
 .button-primary:focus {
   outline: midnightblue solid 2px;
   transition: outline 0.3s ease-in;
+}
+
+.button-primary:disabled {
+  background-color: grey;
+}
+
+.post-it {
+  box-shadow: 2px 5px 7px 0px rgba(0,0,0,0.52);
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

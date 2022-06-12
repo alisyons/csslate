@@ -23,8 +23,12 @@ export class SlateComponent implements OnInit {
           name: xx.name,
           chapter: xx.chapter,
           level: xx.number,
+          person: xx.person,
+          dialogue: xx.dialogue,
+          description: xx.description,
           htmlSnippets: xx.htmlSnippets,
-          cssSnippets: xx.cssSnippets
+          cssSnippets: xx.cssSnippets,
+          solution: xx.solution
         };
     })
 
@@ -36,7 +40,7 @@ export class SlateComponent implements OnInit {
 
     if(this.levelArray) {
       foundLevel = this.levelArray.filter(e => {
-        return e.level === 0 && e.chapter === 1;
+        return e.level === 1 && e.chapter === 1;
       })
 
       if (foundLevel.length === 1) {

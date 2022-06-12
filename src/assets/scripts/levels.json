@@ -4,14 +4,46 @@
       "name": "Default Level",
       "chapter": 1,
       "number": 0,
+      "person": "Max Mustermann",
+      "dialogue": "Dialogue",
+      "description": "Default description and instruction",
+      "solution": "solution",
       "htmlSnippets": [
-        "<div class=\"post-it\">",
-        "This is a code snippet",
+        "<div class=\"post-it a\">",
+        "This is Angus' note.",
         "</div>"
       ],
       "cssSnippets": [
         ".post-it {",
-        "color: blue;",
+        "background-color: blue;",
+        "width: 50px;",
+        "height: 50px;",
+        "}"
+      ]
+    },
+    {
+      "name": "Your first note",
+      "chapter": 1,
+      "number": 1,
+      "person": "Alex",
+      "dialogue": "Someone put my note on the board. But my favourite color is black!",
+      "solution": "background-color: black",
+      "description": "On the left, you see a board. So far, there is only one note pinned on it. Your job is to hang notes on it, or change existing ones, according to people's wishes.<br><br>As you can see, Alex wants a note in black. Each note has attributes, such as <b>height, width and background color</b>, as seen in the class <b>'post-it'</b>.<br><br>There is also the class <b>alex</b>. Any changes you declare in that class will only apply to the note that class is attached to.<br><br>So now, go ahead and change the attribute <b>background-color</b> of Angus' note to <b>black</b>!",
+      "htmlSnippets": [
+        "<div class=\"post-it alex\">",
+        "This is Alex' note.",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "padding: 30px;",
+        "}",
+        " ",
+        " ",
+        ".alex {",
         "}"
       ]
     }

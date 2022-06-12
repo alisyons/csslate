@@ -42,6 +42,14 @@ export class EditorComponent implements OnInit {
 
       this.sharedService.cssSolution = this.currentLevel.cssSnippets;
       this.sharedService.compileSolution();
+
+      if (
+        this.currentLevel.solution === this.solution || this.currentLevel.solution + ';' === this.solution) {
+        this.sharedService.isSolutionValid = true;
+      } else {
+        this.sharedService.isSolutionValid = false;
+      }
+
       console.log(this.sharedService.cssSolution);
     }
   }
