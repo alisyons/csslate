@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, OnChanges} from '@angular/core';
 import {Level} from "../../../shared/level";
 import {SharedService} from "../../../shared/shared.service";
 
@@ -27,6 +27,8 @@ export class EditorComponent implements OnInit {
     }
   }
 
+
+
   public compileSolution(text: string) {
     if (this.currentLevel) {
       this.currentLevel.cssSnippets.pop();
@@ -43,8 +45,10 @@ export class EditorComponent implements OnInit {
       this.sharedService.cssSolution = this.currentLevel.cssSnippets;
       this.sharedService.compileSolution();
 
+      let solutionNoWhitespace = this.sharedService.solution.replace(' ', '');
+
       if (
-        this.currentLevel.solution === this.solution || this.currentLevel.solution + ';' === this.solution) {
+        this.currentLevel.solution === solutionNoWhitespace || this.currentLevel.solution + ';' === solutionNoWhitespace) {
         this.sharedService.isSolutionValid = true;
       } else {
         this.sharedService.isSolutionValid = false;

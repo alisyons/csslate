@@ -16,7 +16,7 @@
       </div>
     </ng-container>
     <textarea
-      [(ngModel)]="solution" (input)="compileSolution(solution)" rows="1"></textarea>
+      [(ngModel)]="this.sharedService.solution" (input)="compileSolution(this.sharedService.solution)" rows="1"></textarea>
     <div class="code">}</div>
   </div>
 </div>

@@ -4,15 +4,21 @@
     <p>Level {{currentLevel?.level}}</p>
     <p>{{currentLevel?.name}}</p>
     <br>
-    <div [innerHTML]="currentLevel?.description">
+    <div [innerHTML]="currentLevel?.description" class="description">
     </div>
+  </div>
+  <div class="correct"
+       [@inOutAnimation]
+       *ngIf="sharedService.isSolutionValid">
+    <img src="assets/icons/check-circle.svg">
+    <h2>Well done!</h2>
   </div>
   <div class="instructions-buttons">
     <button class="button-primary">
       Previous level
     </button>
     <button
-      [disabled]="!sharedService.isSolutionValid"
+      (click)="goToNextLevel()"
       class="button-primary">
       Next level
     </button>

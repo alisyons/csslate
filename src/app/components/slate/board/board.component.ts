@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {Level} from "../../../shared/level";
 import {SharedService} from "../../../shared/shared.service";
 
@@ -24,7 +24,13 @@ export class BoardComponent implements OnInit {
     this.compileCSS();
   }
 
+  ngOnChanges() {
+    this.compileHTML();
+    this.compileCSS();
+  }
+
   public compileHTML() {
+    this.stitchedHTML = '';
     if (this.currentLevel?.htmlSnippets) {
       this.currentLevel.htmlSnippets.forEach(snip => {
         this.stitchedHTML += snip;
@@ -34,6 +40,7 @@ export class BoardComponent implements OnInit {
   }
 
   public compileCSS() {
+    this.stitchedCSS = '';
     if (this.currentLevel?.cssSnippets) {
       this.currentLevel.cssSnippets.forEach(snip => {
         this.stitchedCSS += snip;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import levelsJSON from '../../../assets/scripts/levels.json';
 import {Level} from "../../shared/level";
 import {parseJson} from "@angular/cli/utilities/json-file";
+import {SharedService} from "../../shared/shared.service";
 @Component({
   selector: 'app-slate',
   templateUrl: './slate.component.html',
@@ -13,7 +14,9 @@ export class SlateComponent implements OnInit {
 
   levelArray: Array<Level> = [];
 
-  constructor() { }
+  constructor(
+    public sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
     this.levelArray = levelsJSON.levels.map(xx => {
@@ -48,6 +51,14 @@ export class SlateComponent implements OnInit {
       }
       console.log(this.currentLevel)
     }
+  }
+
+  public onNextLevel(level: Level) {
+    this.currentLevel = this.levelArray.find(e => {
+      this.sharedService.solution = '';
+      this.sharedService.isSolutionValid = false;
+      return e.level === level.level + 1 && e.chapter === 1;
+    })
   }
 
 }
