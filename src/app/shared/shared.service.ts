@@ -23,6 +23,7 @@ export class SharedService {
       })
     }
     this.attachSolution(this.stitchedSolution);
+    this.stitchedSolution = '';
   }
 
   public attachSolution(text: string) {

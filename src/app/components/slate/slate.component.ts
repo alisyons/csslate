@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnChanges, ChangeDetectorRef, ViewChild} from '@angular/core';
 import levelsJSON from '../../../assets/scripts/levels.json';
 import {Level} from "../../shared/level";
 import {parseJson} from "@angular/cli/utilities/json-file";
 import {SharedService} from "../../shared/shared.service";
+import {EditorComponent} from "./editor/editor.component";
 @Component({
   selector: 'app-slate',
   templateUrl: './slate.component.html',
@@ -14,11 +15,20 @@ export class SlateComponent implements OnInit {
 
   levelArray: Array<Level> = [];
 
+  tracker: boolean = true;
+
   constructor(
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    public cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
+    this.setLevelArray();
+
+    this.getLevel(1, 1);
+  }
+
+  private setLevelArray() {
     this.levelArray = levelsJSON.levels.map(xx => {
 
       return <Level>
@@ -34,16 +44,14 @@ export class SlateComponent implements OnInit {
           solution: xx.solution
         };
     })
-
-    this.getCurrentLevel();
   }
 
-  public getCurrentLevel() {
+  public getLevel(chapter: number, level: number) {
     let foundLevel;
 
     if(this.levelArray) {
       foundLevel = this.levelArray.filter(e => {
-        return e.level === 1 && e.chapter === 1;
+        return e.level === level && e.chapter === chapter;
       })
 
       if (foundLevel.length === 1) {
@@ -54,11 +62,25 @@ export class SlateComponent implements OnInit {
   }
 
   public onNextLevel(level: Level) {
-    this.currentLevel = this.levelArray.find(e => {
-      this.sharedService.solution = '';
-      this.sharedService.isSolutionValid = false;
-      return e.level === level.level + 1 && e.chapter === 1;
-    })
+    this.sharedService.solution = '';
+    this.sharedService.isSolutionValid = false;
+    this.sharedService.compileSolution();
+    this.levelArray = [];
+    this.setLevelArray();
+    if (this.currentLevel) {
+      this.getLevel(level.chapter, level.level + 1);
+    }
+  }
+
+  public onPreviousLevel(level: Level) {
+    this.sharedService.solution = '';
+    this.sharedService.isSolutionValid = false;
+    this.sharedService.compileSolution();
+    this.levelArray = [];
+    this.setLevelArray();
+    if (this.currentLevel && this.currentLevel.level > 1) {
+      this.getLevel(level.chapter, level.level - 1);
+    }
   }
 
 }

@@ -1,22 +1,25 @@
 <div class="code editor-wrapper">
-  <div class="html-code">
+  <div class="html-code" *ngIf="tracker">
     <h2>HTML</h2>
     <div
       [ngClass]="{
       'is-div': snippet.includes('div')
       }"
-      *ngFor="let snippet of currentLevel?.htmlSnippets" class="code">{{snippet}}</div>
+      *ngFor="let snippet of currentLevel?.htmlSnippets" class="code html-snips">{{snippet}}</div>
   </div>
-  <div class="css-code">
+  <div class="css-code" *ngIf="tracker">
     <h2>CSS</h2>
-    <ng-container *ngFor="let css of currentLevel?.cssSnippets; let i = index"
-                  class="code">
-      <div *ngIf="i < snippetLength-1" class="code">
+    <ng-container
+      *ngFor="let css of cssLocalArray; let i = index"
+      class="code">
+      <div
+        [ngClass]="{ 'is-css': css.includes('{') || css.includes('}')}"
+        class="code css-snips">
         {{css}}
       </div>
     </ng-container>
     <textarea
-      [(ngModel)]="this.sharedService.solution" (input)="compileSolution(this.sharedService.solution)" rows="1"></textarea>
-    <div class="code">}</div>
+      [(ngModel)]="this.sharedService.solution" (input)="compileSolution(this.sharedService.solution)" rows="1" class="css-snips"></textarea>
+    <div class="code is-css">}</div>
   </div>
 </div>

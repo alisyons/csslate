@@ -39,7 +39,6 @@
         "background-color: #0288D1;",
         "width: 150px;",
         "height: 150px;",
-        "padding: 30px;",
         "}",
         " ",
         " ",
@@ -48,13 +47,13 @@
       ]
     },
     {
-      "name": "Your first note",
+      "name": "Widths and heights",
       "chapter": 1,
       "number": 2,
       "person": "Alex",
       "dialogue": "I'm not a fan of squares!",
       "solution": "background-color:black",
-      "description": "Not every element has to fit the predetermined attributes. Feel free to change the height or width of Alex' note!<br><br>However, be cautious: every width and height needs a unit. These can be pixels (1px), percent (1%), relative to root font size (1rem), and many others.",
+      "description": "Not every element has to fit the predetermined attributes. Feel free to change the height or width of Alex' note!<br><br>However, be cautious: every width and height needs a <b>unit</b>. These can be <b>pixels (1px), percent (1%), relative to root font size (1rem)</b>, and many others. And don't worry about breaking the website, it will all turn back to normal in the next level.",
       "htmlSnippets": [
         "<div class=\"post-it alex\">",
         "This is Alex' note.",
@@ -65,12 +64,90 @@
         "background-color: #0288D1;",
         "width: 150px;",
         "height: 150px;",
-        "padding: 30px;",
         "}",
         " ",
         " ",
         ".alex {",
-        "background-color:black",
+        "background-color: black;",
+        "}"
+      ]
+    },
+    {
+      "name": "A second note?",
+      "chapter": 1,
+      "number": 3,
+      "person": "Bea",
+      "dialogue": "My cat has gone missing! Please help me put a note about it on the board! It's urgent and requires all attention!",
+      "solution": "position:absolute",
+      "description": "Suddenly, we are in need of a second note. Thus, we need a second <b>div</b> dedicated to Bea. Let us give it the class <b>bea</b>.<br><br>Now, we have to set a <b>position</b>. A <b>relative</b> position doesn't change the general layout of the page, while an <b>absolute</b> position places itself according to the parent's position (which in this case is the container of the post-its). Now, how can we force everyone to look at Bea's note first?<br><br>Fun fact: every element's default position is <b>static</b>. It is positioned according to the flow.",
+      "htmlSnippets": [
+        "<div class=\"post-it alex\">",
+        "This is Alex' note.",
+        "</div>",
+        "<div class=\"post-it bea\">",
+        "Cat missing! Please contact me: 123/XXXXX",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}",
+        " ",
+        ".alex {",
+        "background-color: black;",
+        "}",
+        " ",
+        ".bea {",
+        "}"
+      ]
+    },
+    {
+      "name": "Hide and Seek",
+      "chapter": 1,
+      "number": 4,
+      "person": "Charlie",
+      "dialogue": "Someone put this embarassing note on the board! Please make it disappear!",
+      "description": "How and if a note is shown is handled by the <b>display</b> attribute. In this chapter, you are introduced to the values <b>inline, block</b> and <b>none</b>.<br><br>You will get to know them in detail in the next chapter, so in the meantime, let's make it disappear. As your guess, which one of the display values can make a note go away?<br><br>You will find yourself having a hard time overriding the note's default display property (which will be <b>block</b>, since it's a <b>div element</b>), so have to overpower it by attaching <b>!important</b> to your solution. However, in practical use, you should use <b>!important</b> only if nothing else works.",
+      "solution": "display:none",
+      "htmlSnippets": [
+        "<div class=\"post-it charlie\">",
+        "I'm Charlie and I'm stupid!",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}"
+      ]
+    },
+    {
+      "name": "Falling in Line",
+      "chapter": 1,
+      "number": 5,
+      "person": "Charlie",
+      "dialogue": "I just wanted to say hello and now it's unreadable!",
+      "description": "When you look at the HTML code, every lettervis nested in its own <b>p</b> element. Usually <b>p</b> elements (as in 'paragraph') have the default of <b>display: block</b>. <br><br>This means that this element will always start a new line and extend to the full width of the note. Now, if you think back, there was a different keyword that makes sure that those elements do not start a new line.<br><br>Now, what does that selector mean? That <b>.charlie p</b>? This means that it selects every <b>p</b> element that is inside the element with the <b>charlie</b> class. Selectors with dots before them signify class selectors, while no dot means element selector.",
+      "solution": "display:inline",
+      "htmlSnippets": [
+        "<div class=\"post-it charlie\">",
+        "<p>H</p>",
+        "<p>e</p>",
+        "<p>l</p>",
+        "<p>l</p>",
+        "<p>o</p>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}",
+        ".charlie p {",
         "}"
       ]
     }

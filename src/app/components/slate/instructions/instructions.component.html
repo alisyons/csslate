@@ -1,8 +1,8 @@
 <div class="instructions-wrapper">
   <div class="instructions-text">
     <p>Chapter {{currentLevel?.chapter}}</p>
-    <p>Level {{currentLevel?.level}}</p>
-    <p>{{currentLevel?.name}}</p>
+    <h2 class="level-number">Level {{currentLevel?.level}}</h2>
+    <h2>{{currentLevel?.name}}</h2>
     <br>
     <div [innerHTML]="currentLevel?.description" class="description">
     </div>
@@ -14,7 +14,9 @@
     <h2>Well done!</h2>
   </div>
   <div class="instructions-buttons">
-    <button class="button-primary">
+    <button
+      (click)="goToPreviousLevel()"
+      class="button-primary">
       Previous level
     </button>
     <button

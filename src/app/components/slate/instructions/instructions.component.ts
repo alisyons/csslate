@@ -42,6 +42,9 @@ export class InstructionsComponent implements OnInit {
   @Output()
   nextLevel = new EventEmitter<Level>();
 
+  @Output()
+  previousLevel = new EventEmitter<Level>();
+
   constructor(
     public sharedService: SharedService
   ) { }
@@ -51,6 +54,10 @@ export class InstructionsComponent implements OnInit {
 
   public goToNextLevel() {
     this.nextLevel.emit(this.currentLevel);
+  }
+
+  public goToPreviousLevel() {
+    this.previousLevel.emit(this.currentLevel);
   }
 
 }

@@ -6,12 +6,14 @@
     </div>
     <div class="editor">
       <app-editor
+        [tracker]="tracker"
         [currentLevel]="currentLevel"></app-editor>
     </div>
   </div>
   <div class="intruction right">
     <app-instructions
       (nextLevel)="onNextLevel($event)"
+      (previousLevel)="onPreviousLevel($event)"
     [currentLevel]="currentLevel"></app-instructions>
   </div>
 </div>
