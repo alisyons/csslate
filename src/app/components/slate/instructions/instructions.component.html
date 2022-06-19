@@ -1,6 +1,16 @@
+<div class="instructions-content">
 <div class="instructions-wrapper">
   <div class="instructions-text">
-    <p>Chapter {{currentLevel?.chapter}}</p>
+    <select
+      [value]="currentLevel?.chapter"
+      [(ngModel)]="selectedChapter"
+      (change)="onSelectChapter()">
+      <option
+        [selected]="chapterNr === currentLevel?.chapter"
+        [ngValue]="chapterNr"
+        *ngFor="let chapterNr of chapters">Chapter {{chapterNr}}</option>
+    </select>
+    <!-- <p>Chapter {{currentLevel?.chapter}}</p> -->
     <h2 class="level-number">Level {{currentLevel?.level}}</h2>
     <h2>{{currentLevel?.name}}</h2>
     <br>
@@ -15,15 +25,19 @@
   </div>
   <div class="instructions-buttons">
     <button
+      [disabled]="isFirstLevel"
       (click)="goToPreviousLevel()"
       class="button-primary">
       Previous level
     </button>
     <button
+      [disabled]="isLastLevel"
       (click)="goToNextLevel()"
       class="button-primary">
       Next level
     </button>
   </div>
+</div>
+<app-footer></app-footer>
 </div>
 

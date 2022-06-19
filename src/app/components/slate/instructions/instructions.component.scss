@@ -1,9 +1,23 @@
+.instructions-content {
+  display: grid;
+  grid-template-rows: calc(100vh - 9rem) 3rem;
+}
+
+app-footer {
+  grid-row: 2;
+}
+
 .instructions-wrapper {
+  grid-row: 1;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: calc(100% - 2rem);
+
+  select {
+    margin-bottom: 1rem;
+  }
 
   .level-number {
     color: #5D99C6;

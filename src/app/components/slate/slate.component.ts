@@ -12,6 +12,8 @@ import {EditorComponent} from "./editor/editor.component";
 export class SlateComponent implements OnInit {
 
   currentLevel: Level | undefined;
+  isLastLevel: boolean = false;
+  isFirstLevel: boolean = false;
 
   levelArray: Array<Level> = [];
 
@@ -24,6 +26,7 @@ export class SlateComponent implements OnInit {
 
   ngOnInit(): void {
     this.setLevelArray();
+    this.isFirstLevel = true;
 
     this.getLevel(1, 1);
   }
@@ -44,6 +47,8 @@ export class SlateComponent implements OnInit {
           solution: xx.solution
         };
     })
+
+    this.maxChapter();
   }
 
   public getLevel(chapter: number, level: number) {
@@ -57,30 +62,83 @@ export class SlateComponent implements OnInit {
       if (foundLevel.length === 1) {
         this.currentLevel = foundLevel[0];
       }
-      console.log(this.currentLevel)
+    }
+  }
+
+  public maxChapter(): number {
+    let chapters: Array<number> = [];
+
+    this.levelArray.forEach(l => {
+      chapters.push(l.chapter);
+    })
+
+    return Math.max.apply(null, chapters);
+  }
+
+  public maxLevel(ch: number): number {
+    let levelNumbers: Array<number> = [];
+    let levelsInChapter;
+
+    levelsInChapter = this.levelArray.filter(e => e.chapter === ch);
+
+    levelsInChapter.forEach(l => {
+      levelNumbers.push(l.level);
+    })
+    return Math.max.apply(null, levelNumbers);
+
+  }
+
+  public onSelectChapter(chapter: number) {
+    this.getLevel(chapter, 1);
+  }
+
+  public checkLastOrFirstChapter() {
+    if (this.currentLevel) {
+      if(this.currentLevel.chapter === 1 && this.currentLevel.level === 1) {
+        this.isFirstLevel = true;
+      } else if (this.currentLevel.chapter === this.maxChapter() && this.currentLevel.level === this.maxLevel(this.maxChapter())) {
+        this.isLastLevel = true;
+      }
     }
   }
 
   public onNextLevel(level: Level) {
+    this.isFirstLevel = false;
+    this.sharedService.solution = '';
+    this.sharedService.isSolutionValid = false;
+    this.sharedService.compileSolution();
+    this.levelArray = [];
+    this.setLevelArray();
+    this.isFirstLevel = false;
+
+    let maxLevel = this.maxLevel(level.chapter);
+
+    if (this.currentLevel) {
+      if(this.currentLevel.level < maxLevel) {
+        this.getLevel(level.chapter, level.level + 1);
+        this.checkLastOrFirstChapter();
+      } else if (this.currentLevel.chapter < this.maxChapter()) {
+        this.getLevel(level.chapter + 1, level.level = 1);
+        this.checkLastOrFirstChapter();
+      }
+    }
+  }
+
+  public onPreviousLevel(level: Level) {
+    this.isLastLevel = false;
     this.sharedService.solution = '';
     this.sharedService.isSolutionValid = false;
     this.sharedService.compileSolution();
     this.levelArray = [];
     this.setLevelArray();
     if (this.currentLevel) {
-      this.getLevel(level.chapter, level.level + 1);
+      if (this.currentLevel.level > 1) {
+        this.getLevel(level.chapter, level.level - 1);
+        this.checkLastOrFirstChapter();
+      } else if (this.currentLevel.chapter > 1) {
+        this.getLevel(level.chapter - 1, level.level = this.maxLevel(level.chapter-1));
+        this.checkLastOrFirstChapter();
+      }
     }
   }
-
-  public onPreviousLevel(level: Level) {
-    this.sharedService.solution = '';
-    this.sharedService.isSolutionValid = false;
-    this.sharedService.compileSolution();
-    this.levelArray = [];
-    this.setLevelArray();
-    if (this.currentLevel && this.currentLevel.level > 1) {
-      this.getLevel(level.chapter, level.level - 1);
-    }
-  }
-
 }

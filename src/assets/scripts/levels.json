@@ -100,6 +100,8 @@
         "}",
         " ",
         ".bea {",
+        "top: 10rem;",
+        "left: 5rem;",
         "}"
       ]
     },
@@ -130,7 +132,7 @@
       "number": 5,
       "person": "Charlie",
       "dialogue": "I just wanted to say hello and now it's unreadable!",
-      "description": "When you look at the HTML code, every lettervis nested in its own <b>p</b> element. Usually <b>p</b> elements (as in 'paragraph') have the default of <b>display: block</b>. <br><br>This means that this element will always start a new line and extend to the full width of the note. Now, if you think back, there was a different keyword that makes sure that those elements do not start a new line.<br><br>Now, what does that selector mean? That <b>.charlie p</b>? This means that it selects every <b>p</b> element that is inside the element with the <b>charlie</b> class. Selectors with dots before them signify class selectors, while no dot means element selector.",
+      "description": "When you look at the HTML code, every letter is nested in its own <b>p</b> element. Usually <b>p</b> elements (as in 'paragraph') have the default of <b>display: block</b>. <br><br>This means that this element will always start a new line and extend to the full width of the note. Now, if you think back, there was a different keyword that makes sure that those elements do not start a new line.<br><br>Now, what does that selector mean? That <b>.charlie p</b>? This means that it selects every <b>p</b> element that is inside the element with the <b>charlie</b> class. Selectors with dots before them signify class selectors, while no dot means element selector.",
       "solution": "display:inline",
       "htmlSnippets": [
         "<div class=\"post-it charlie\">",
@@ -148,6 +150,68 @@
         "height: 150px;",
         "}",
         ".charlie p {",
+        "}"
+      ]
+    },
+    {
+      "name": "Default Level",
+      "chapter": 2,
+      "number": 1,
+      "person": "Dora",
+      "dialogue": "Make space! ... somehow.",
+      "description": "Congrats, you've mastered the basics of CSS! But there are more shores to explore.<br><br>For the first level of the intermediate chapter, we will explore <b>margins</b> and <b>paddings</b>. Sometimes, you need to make space for your note, be it IN or OUTSIDE it. A <b>margin</b> shoves every other note outside it by some amount, while a padding pushes everything inside the note by that amount. Boths margin and padding can be set in every direction, as well as defined for one specific side (e. g. <b>padding-left</b>).<br><br>Feel free to play around with it. Again, this level has no concrete solution, so you can proceed whenever you want.<br><br><b>Note:</b> Post-Its have a predetermined padding that isn't shown in the code. To override it, please use <b>!important</b>.",
+      "solution": "solution",
+      "htmlSnippets": [
+        "<div class=\"post-it\">",
+        "Alex' note!",
+        "</div>",
+        "<div class=\"post-it\">",
+        "Bea's note!",
+        "</div>",
+        "<div class=\"post-it\">",
+        "Charlie's note!",
+        "</div>",
+        "<div class=\"post-it\">",
+        "Dora's note!",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}"
+      ]
+    },
+    {
+      "name": "Fight for Dominance",
+      "chapter": 2,
+      "number": 2,
+      "person": "Alex",
+      "dialogue": "That Bea! She really put her note over mine! I'm gonna show her...",
+      "description": "Hey, this looks familiar... That's the board from level 3 in chapter 1.<br><br>Changing the \"layering\" of elements is no big deal, since every element has its own <b>z-index</b>. Imagine onion layers, and every layer has its own number. An item with z-index of 3 will be always shown above an item with z-index 2.<br><br>The default <b>z-index</b> value is <b>auto</b>. It means that elements without z-index do not begin a new stacking context and are exempt from future z-index stacks.",
+      "solution": "solution",
+      "htmlSnippets": [
+        "<div class=\"post-it alex\">",
+        "This is Alex' note.",
+        "</div>",
+        "<div class=\"post-it bea\">",
+        "Cat missing! Please contact me: 123/XXXXX",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}",
+        ".bea {",
+        "position: absolute;",
+        "z-index: 2;",
+        "}",
+        " ",
+        ".alex {",
+        "background-color: black !important;",
         "}"
       ]
     }

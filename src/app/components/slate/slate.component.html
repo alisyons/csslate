@@ -12,6 +12,10 @@
   </div>
   <div class="intruction right">
     <app-instructions
+      [maxChapter]="maxChapter()"
+      [isFirstLevel]="isFirstLevel"
+      [isLastLevel]="isLastLevel"
+      (selectChapter)="onSelectChapter($event)"
       (nextLevel)="onNextLevel($event)"
       (previousLevel)="onPreviousLevel($event)"
     [currentLevel]="currentLevel"></app-instructions>

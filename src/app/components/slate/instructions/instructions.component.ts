@@ -39,17 +39,38 @@ export class InstructionsComponent implements OnInit {
   @Input()
   currentLevel: Level | undefined;
 
+  @Input()
+  isLastLevel: boolean = false;
+
+  @Input()
+  isFirstLevel: boolean = false;
+
   @Output()
   nextLevel = new EventEmitter<Level>();
 
   @Output()
   previousLevel = new EventEmitter<Level>();
 
+  @Output()
+  selectChapter = new EventEmitter<number>();
+
+  @Input()
+  maxChapter: number = 0;
+  chapters: Array<number> = [];
+  selectedChapter: number = 0;
+
   constructor(
     public sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
+    for (let i = 1; i < this.maxChapter+1; i++) {
+      this.chapters.push(i);
+    }
+
+    if(this.currentLevel) {
+      this.selectedChapter = this.currentLevel?.chapter;
+    }
   }
 
   public goToNextLevel() {
@@ -58,6 +79,10 @@ export class InstructionsComponent implements OnInit {
 
   public goToPreviousLevel() {
     this.previousLevel.emit(this.currentLevel);
+  }
+
+  public onSelectChapter() {
+    this.selectChapter.emit(this.selectedChapter);
   }
 
 }
