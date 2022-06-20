@@ -11,6 +11,8 @@ import { InstructionsComponent } from './components/slate/instructions/instructi
 import { EditorComponent } from './components/slate/editor/editor.component';
 import { BoardComponent } from './components/slate/board/board.component';
 import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TextFieldModule} from "@angular/cdk/text-field";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {FormsModule} from "@angular/forms";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule,
+        TextFieldModule
     ],
   providers: [],
   bootstrap: [AppComponent]

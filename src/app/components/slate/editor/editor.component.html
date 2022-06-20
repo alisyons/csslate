@@ -18,7 +18,7 @@
         {{css}}
       </div>
     </ng-container>
-    <textarea
+    <textarea cdkTextareaAutosize id="editor-textarea"
       [(ngModel)]="this.sharedService.solution" (input)="compileSolution(this.sharedService.solution)" rows="1" class="css-snips"></textarea>
     <div class="code is-css">}</div>
   </div>

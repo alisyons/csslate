@@ -90,6 +90,7 @@ export class SlateComponent implements OnInit {
 
   public onSelectChapter(chapter: number) {
     this.getLevel(chapter, 1);
+    this.checkLastOrFirstChapter();
   }
 
   public checkLastOrFirstChapter() {

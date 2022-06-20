@@ -13,6 +13,27 @@
     <!-- <p>Chapter {{currentLevel?.chapter}}</p> -->
     <h2 class="level-number">Level {{currentLevel?.level}}</h2>
     <h2>{{currentLevel?.name}}</h2>
+    <div class="dialogue">
+      <div class="dialogue-text">
+        <h3>{{currentLevel?.dialogue}}</h3>
+      </div>
+      <div class="dialogue-bubble">
+        <svg width="326" height="153" viewBox="0 0 326 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="path-1-inside-1_9_62" fill="white">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 0C6.71573 0 0 6.71573 0 15V138C0 146.284 6.71573 153 15 153H278C286.284 153 293 146.284 293 138V44.847L326 31.45L293 18.053V15C293 6.71573 286.284 0 278 0H15Z"/>
+          </mask>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15 0C6.71573 0 0 6.71573 0 15V138C0 146.284 6.71573 153 15 153H278C286.284 153 293 146.284 293 138V44.847L326 31.45L293 18.053V15C293 6.71573 286.284 0 278 0H15Z" fill="transparent"/>
+          <path d="M293 44.847L291.119 40.2142L288 41.4805V44.847H293ZM326 31.45L327.881 36.0828L339.292 31.45L327.881 26.8172L326 31.45ZM293 18.053H288V21.4195L291.119 22.6858L293 18.053ZM5 15C5 9.47715 9.47715 5 15 5V-5C3.95431 -5 -5 3.9543 -5 15H5ZM5 138V15H-5V138H5ZM15 148C9.47715 148 5 143.523 5 138H-5C-5 149.046 3.95431 158 15 158V148ZM278 148H15V158H278V148ZM288 138C288 143.523 283.523 148 278 148V158C289.046 158 298 149.046 298 138H288ZM288 44.847V138H298V44.847H288ZM294.881 49.4798L327.881 36.0828L324.119 26.8172L291.119 40.2142L294.881 49.4798ZM327.881 26.8172L294.881 13.4202L291.119 22.6858L324.119 36.0828L327.881 26.8172ZM288 15V18.053H298V15H288ZM278 5C283.523 5 288 9.47715 288 15H298C298 3.95431 289.046 -5 278 -5V5ZM15 5H278V-5H15V5Z" fill="currentColor" mask="url(#path-1-inside-1_9_62)"/>
+        </svg>
+      </div>
+      <div class="dialogue-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg>
+        <div>{{currentLevel?.person}}</div>
+      </div>
+    </div>
     <br>
     <div [innerHTML]="currentLevel?.description" class="description">
     </div>

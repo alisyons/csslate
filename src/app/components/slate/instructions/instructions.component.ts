@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {Level} from "../../../shared/level";
 import {SharedService} from "../../../shared/shared.service";
 import {animate, style, transition, trigger, state} from "@angular/animations";
@@ -14,17 +14,9 @@ import {animate, style, transition, trigger, state} from "@angular/animations";
         transition(
           ':enter',
           [
-            style({ height: 0, opacity: 0 }),
+            style({ opacity: 0 }),
             animate('1s ease-out',
-              style({ height: 300, opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ height: 300, opacity: 1 }),
-            animate('1s ease-in',
-              style({ height: 0, opacity: 0 }))
+              style({ opacity: 1 }))
           ]
         )
       ]
@@ -60,7 +52,7 @@ export class InstructionsComponent implements OnInit {
   selectedChapter: number = 0;
 
   constructor(
-    public sharedService: SharedService
+    public sharedService: SharedService,
   ) { }
 
   ngOnInit(): void {
@@ -75,10 +67,21 @@ export class InstructionsComponent implements OnInit {
 
   public goToNextLevel() {
     this.nextLevel.emit(this.currentLevel);
+
+    this.resetTextAreaHeight();
+  }
+
+  private resetTextAreaHeight() {
+    let el = document.getElementById('editor-textarea');
+
+    if (el) {
+      el.style.height = '1rem';
+    }
   }
 
   public goToPreviousLevel() {
     this.previousLevel.emit(this.currentLevel);
+    this.resetTextAreaHeight();
   }
 
   public onSelectChapter() {

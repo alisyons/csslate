@@ -27,6 +27,11 @@ h2 {
   font-size: 1.5rem;
 }
 
+h3 {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .code {
   font-family: Courier;
 }
@@ -78,3 +83,13 @@ b {
   top: 10rem;
  left: 5rem;
 }
+
+.graphic {
+  height: 9rem;
+  float: left;
+  border: #5D99C6 2px solid;
+  margin: .5rem
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

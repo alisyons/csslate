@@ -4,21 +4,15 @@
       "name": "Default Level",
       "chapter": 1,
       "number": 0,
-      "person": "Max Mustermann",
-      "dialogue": "Dialogue",
-      "description": "Default description and instruction",
-      "solution": "solution",
+      "person": "",
+      "dialogue": "",
+      "description": "",
+      "solution": "",
       "htmlSnippets": [
-        "<div class=\"post-it a\">",
-        "This is Angus' note.",
-        "</div>"
+        ""
       ],
       "cssSnippets": [
-        ".post-it {",
-        "background-color: blue;",
-        "width: 50px;",
-        "height: 50px;",
-        "}"
+        ""
       ]
     },
     {
@@ -32,6 +26,9 @@
       "htmlSnippets": [
         "<div class=\"post-it alex\">",
         "This is Alex' note.",
+        "</div>",
+        "<div class=\"post-it bea\">",
+        "This is Bea's note.",
         "</div>"
       ],
       "cssSnippets": [
@@ -73,7 +70,7 @@
       ]
     },
     {
-      "name": "A second note?",
+      "name": "Working with a second note",
       "chapter": 1,
       "number": 3,
       "person": "Bea",
@@ -154,7 +151,7 @@
       ]
     },
     {
-      "name": "Default Level",
+      "name": "Margins and paddings",
       "chapter": 2,
       "number": 1,
       "person": "Dora",
@@ -190,7 +187,7 @@
       "person": "Alex",
       "dialogue": "That Bea! She really put her note over mine! I'm gonna show her...",
       "description": "Hey, this looks familiar... That's the board from level 3 in chapter 1.<br><br>Changing the \"layering\" of elements is no big deal, since every element has its own <b>z-index</b>. Imagine onion layers, and every layer has its own number. An item with z-index of 3 will be always shown above an item with z-index 2.<br><br>The default <b>z-index</b> value is <b>auto</b>. It means that elements without z-index do not begin a new stacking context and are exempt from future z-index stacks.",
-      "solution": "solution",
+      "solution": "z-index:",
       "htmlSnippets": [
         "<div class=\"post-it alex\">",
         "This is Alex' note.",
@@ -212,6 +209,126 @@
         " ",
         ".alex {",
         "background-color: black !important;",
+        "}"
+      ]
+    },
+    {
+      "name": "Floaty friends",
+      "chapter": 2,
+      "number": 3,
+      "person": "Bea",
+      "dialogue": "I want this emoji to be aligned on the right!",
+      "description": "Similar to Word, CSS can also align items within texts. You can order an element to be <b>left or right</b> of text, with <b>float</b>. With this, you can move an element without necessarily changing the entire structure of your board.",
+      "solution": "float:right",
+      "htmlSnippets": [
+        "<div class=\"post-it alex\">",
+        "<p>",
+        "<span class=\"emoji\">\uD83D\uDE08</span>",
+        "My note!",
+        "</p>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}",
+        ".alex {",
+        "background-color: black;",
+        "}",
+        ".emoji {",
+        "}"
+      ]
+    },
+    {
+      "name": "A bit of magic",
+      "chapter": 2,
+      "number": 4,
+      "person": "Alex",
+      "dialogue": "I heard there's this magical thing called \"hover\"... What if my post-it turns purple upon hovering...",
+      "description": "Where do these <b>hover</b> effects come from that we see all the time? It's quite simple, in fact. In CSS there are so-called \"pseudo-selectors\". They are appended to the class name with <b>:</b>, such as alex<b>:hover</b>.<br><br>They require a new declaration (you will see that in the template). Try it out!<br><br>If you're looking for a purple hexcode, try this one: <b>#C3B1E1</b>.",
+      "solution": "background-color:#C3B1E1",
+      "htmlSnippets": [
+        "<div class=\"post-it alex\">",
+        "<p>",
+        "<span class=\"emoji\">\uD83D\uDE08</span>",
+        "My note!",
+        "</p>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}",
+        ".alex {",
+        "background-color: black;",
+        "}",
+        ".alex:hover {",
+        "}"
+      ]
+    },
+    {
+      "name": "Extra wishes",
+      "chapter": 2,
+      "number": 5,
+      "person": "Ellie",
+      "dialogue": "My post-it looks super bleak! I want it to have a little footer...",
+      "description": "<img class=\"graphic\" src=\"assets/graphic.png\"> This one is a little more complicated, and it's the last level of chapter 2. By giving a note <b>an absolute positioning</b>, you can manipulate its placing within its parent. To do that, the parent requires <b>a relative positioning</b>, so that its content still stays within its bounds.<br><br>You can set <b>top, left, bottom and right</b> properties for an item. Try to figure out how to position the child at the bottom!",
+      "solution": "position:absolute;bottom:0;right:0;left:0",
+      "htmlSnippets": [
+        "<div class=\"post-it ellie\">",
+        "Math tutor needed!",
+        "  <div class=\"post-it-footer\">",
+        "ellie@mail.com",
+        "  </div>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "position: relative;",
+        "}",
+        ".post-it-footer {",
+        "font-size: 1rem;",
+        "background-color: #BF5F82;",
+        "padding: 1rem;",
+        "}"
+      ]
+    },
+    {
+      "name": "How many children?",
+      "chapter": 3,
+      "number": 1,
+      "person": "Ellie",
+      "dialogue": "This needs more variety! Let's make every second note pink or something...",
+      "description": "Congratulations to passing chapter 2, or welcome if you're only here to refresh some of your knowledge. The training wheels can come off now, and occasionally you get to code much more on your own.<br><br>Let's begin with a simple task, and let's go back to the pseudo-selectors. There are ways to select every n-th, even or odd child inside a parent element.<br><br>The syntax has been provided for you this time, but you oughta remember how it works.<br><br><b>Note:</b> Even though it seems counter-intuitive, you have to attach the pseudo-selector to the child elements, in this case post-its instead of the board.",
+      "solution": "",
+      "htmlSnippets": [
+        "<div class=\"post-it\">",
+        "Alex' note!",
+        "</div>",
+        "<div class=\"post-it\">",
+        "Bea's note!",
+        "</div>",
+        "<div class=\"post-it\">",
+        "Charlie's note!",
+        "</div>",
+        "<div class=\"post-it\">",
+        "Dora's note!",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 150px;",
+        "height: 150px;",
+        "}",
+        ".post-it:nth-child(even) {",
         "}"
       ]
     }
