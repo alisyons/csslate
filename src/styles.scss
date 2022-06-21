@@ -73,6 +73,7 @@ body {
   font-size: 1.5rem;
   padding: 1rem;
   margin-right: 1rem;
+  box-sizing: border-box;
 }
 
 b {
@@ -89,6 +90,15 @@ b {
   float: left;
   border: #5D99C6 2px solid;
   margin: .5rem
+}
+
+.ellie-text {
+  background-color: #F48FB1;
+}
+
+.ellie {
+  background-color: #5D99C6;
+  height: 200px;
 }
 
 html, body { height: 100%; }

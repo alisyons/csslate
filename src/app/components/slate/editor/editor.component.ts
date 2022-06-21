@@ -69,6 +69,7 @@ export class EditorComponent implements OnInit {
       this.currentLevel.cssSnippets.push('}');
 
       let solutionNoWhitespace = this.sharedService.solution.replace(' ', '');
+      console.log(solutionNoWhitespace);
 
       if (
         this.currentLevel.solution === solutionNoWhitespace || this.currentLevel.solution + ';' === solutionNoWhitespace) {

@@ -34,8 +34,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         " ",
         " ",
@@ -59,8 +59,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         " ",
         " ",
@@ -88,8 +88,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         " ",
         ".alex {",
@@ -118,8 +118,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}"
       ]
     },
@@ -143,8 +143,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         ".charlie p {",
         "}"
@@ -175,8 +175,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}"
       ]
     },
@@ -199,8 +199,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         ".bea {",
         "position: absolute;",
@@ -231,8 +231,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         ".alex {",
         "background-color: black;",
@@ -260,8 +260,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         ".alex {",
         "background-color: black;",
@@ -289,8 +289,8 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "position: relative;",
         "}",
         ".post-it-footer {",
@@ -325,11 +325,92 @@
       "cssSnippets": [
         ".post-it {",
         "background-color: #0288D1;",
-        "width: 150px;",
-        "height: 150px;",
+        "width: 200px;",
+        "height: 200px;",
         "}",
         ".post-it:nth-child(even) {",
         "}"
+      ]
+    },
+    {
+      "name": "Flexing some boxes",
+      "chapter": 3,
+      "number": 2,
+      "person": "Fred",
+      "dialogue": "Hey hey, lemme teach you a little trick about centering things...",
+      "description": "We've all been there, we have this pretty little element and we simply want it to stay in the center. But we also want it to stay dynamic. If you want a responsive centering of elements, you can use <b>flexbox</b> to your advantage. Flexbox is a way to display your elements, and it stretches containers to the available width/height. What it also does, is align them vertically and horizontally.<br><br>Declaring <b>display: flex</b> should be done in the parent component (in our case, the note). Then, you can use its alignment properties <b>justify-content</b> and <b>align-items</b>.",
+      "solution": "display:flex;\njustify-content:center;\nalign-items:center;",
+      "htmlSnippets": [
+        "<div class=\"post-it\">",
+        "<p>CENTER</p>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 200px;",
+        "height: 200px;",
+        "}"
+      ]
+    },
+    {
+      "name": "Beyond the border",
+      "chapter": 3,
+      "number": 3,
+      "person": "Dora",
+      "dialogue": "I want my note to look exactly like the image below.",
+      "description": "<img class=\"graphic\" src=\"assets/dora.png\"> This is your proof of understanding padding and margin. We are adding the border, an immediate stroke around your element. It has three properties: <b>border width (in pixels etc.), border color (a hexcode or color name)</b> and <b>kind of border</b> (usually, you want a solid border, but dotted, dashed and many more borders are also available).",
+      "solution": "",
+      "htmlSnippets": [
+        "<div class=\"post-it alex\">",
+        "Alex' note!",
+        "</div>",
+        "<div class=\"post-it dora\">",
+        "Dora's note!",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ".post-it {",
+        "background-color: #0288D1;",
+        "width: 200px;",
+        "height: 200px;",
+        "}",
+        ".dora {",
+        ""
+      ]
+    },
+    {
+      "name": "A hundred percent",
+      "chapter": 3,
+      "number": 4,
+      "person": "Ellie",
+      "dialogue": "I want the most massive biggest note that ever was!",
+      "description": "Now we will explore the parent element and child element interactions when it comes to width. For this exercise, you are free to experiment with several things.<br><br>Ellie wants THE most massive note, so it needs to have the width equal to 100%. This will always relate to the parent width. But also, you can try and see how setting the width of the <b>p</b> element to a lesser percentage will change its width compared to the parent. To your convenience, it will have a background color set in the background.",
+      "solution": "No solution",
+      "htmlSnippets": [
+        "<div class=\"post-it ellie\">",
+        "<p class=\"ellie-text\">Bloop</p>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ""
+      ]
+    },
+    {
+      "name": "The Final Challenge",
+      "chapter": 3,
+      "number": 5,
+      "person": "The Creator",
+      "dialogue": "This shall be your final test. Do not disappoint me, or else...",
+      "description": "You have learned a lot of things through this game. Now you get to put your knowledge to the test.",
+      "solution": "No solution",
+      "htmlSnippets": [
+        "<div class=\"post-it ellie\">",
+        "<p class=\"ellie-text\">Bloop</p>",
+        "</div>"
+      ],
+      "cssSnippets": [
+        ""
       ]
     }
   ]
