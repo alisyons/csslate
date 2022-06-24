@@ -26,9 +26,12 @@ export class SlateComponent implements OnInit {
 
   ngOnInit(): void {
     this.setLevelArray();
-    this.isFirstLevel = true;
 
-    this.getLevel(1, 1);
+    if(this.sharedService.startingChapter >= 1) {
+      this.getLevel(this.sharedService.startingChapter, 1);
+    }
+
+    this.checkLastOrFirstChapter();
   }
 
   private setLevelArray() {
@@ -52,6 +55,17 @@ export class SlateComponent implements OnInit {
   }
 
   public getLevel(chapter: number, level: number) {
+    if(chapter === 1 && level === 1) {
+      this.isFirstLevel = true;
+      this.isLastLevel = false;
+    } else if (chapter === this.maxChapter() && level === this.maxLevel(this.maxChapter())){
+      this.isLastLevel = true;
+      this.isFirstLevel = false;
+    } else {
+      this.isFirstLevel = false;
+      this.isLastLevel = false;
+    }
+
     let foundLevel;
 
     if(this.levelArray) {
@@ -61,6 +75,7 @@ export class SlateComponent implements OnInit {
 
       if (foundLevel.length === 1) {
         this.currentLevel = foundLevel[0];
+        this.checkLastOrFirstChapter();
       }
     }
   }
@@ -90,7 +105,6 @@ export class SlateComponent implements OnInit {
 
   public onSelectChapter(chapter: number) {
     this.getLevel(chapter, 1);
-    this.checkLastOrFirstChapter();
   }
 
   public checkLastOrFirstChapter() {

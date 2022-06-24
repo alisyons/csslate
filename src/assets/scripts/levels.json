@@ -402,11 +402,11 @@
       "number": 5,
       "person": "The Creator",
       "dialogue": "This shall be your final test. Do not disappoint me, or else...",
-      "description": "You have learned a lot of things through this game. Now you get to put your knowledge to the test.",
+      "description": "<img class=\"graphic-final\" src=\"assets/final.png\">You have learned a lot of things through this game. Now you get to put your knowledge to the test. You have to move the note to this spot, fill it completely, but there will be some other challenges you'll be facing along the way. Use all that you have learned!",
       "solution": "No solution",
       "htmlSnippets": [
-        "<div class=\"post-it ellie\">",
-        "<p class=\"ellie-text\">Bloop</p>",
+        "<div class=\"post-it final-note\">",
+        "<p>This is it.</p>",
         "</div>"
       ],
       "cssSnippets": [

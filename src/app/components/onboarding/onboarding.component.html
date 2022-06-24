@@ -1,5 +1,15 @@
 <div class="onboarding-wrapper">
-  <h1>Welcome to CSSlate!</h1>
-  <h2>This will be an onboarding.</h2>
-  <button class="button-primary" (click)="goToGame()">Go To Game</button>
+  <div class="onboarding-questions">
+    <h1>Welcome to CSSlate!</h1>
+    <h2 *ngIf="isBeginner">{{onboardingQuestions[0]}}</h2>
+    <button class="button-primary" *ngIf="isBeginner" (click)="goSecondQuestion()">Yes</button>
+    <button class="button-primary" *ngIf="isBeginner" (click)="goBeginner()">No</button>
+    <h2 *ngIf="!isBeginner">{{onboardingQuestions[1]}}</h2>
+    <button class="button-primary" *ngIf="!isBeginner" (click)="secondQuestionEval(true)">Refresh knowledge</button>
+    <button class="button-primary" *ngIf="!isBeginner" (click)="secondQuestionEval(false)">Learn new things</button>
+  </div>
+  <div class="cookie-notice">
+    <img src="assets/icons/question-circle-pink.svg">Your choice will be saved in a cookie, so that you don't have to go through the onboarding process every time you visit the site.
+  </div>
+
 </div>

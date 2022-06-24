@@ -13,6 +13,7 @@ import { BoardComponent } from './components/slate/board/board.component';
 import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TextFieldModule} from "@angular/cdk/text-field";
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import {TextFieldModule} from "@angular/cdk/text-field";
         BrowserAnimationsModule,
         TextFieldModule
     ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

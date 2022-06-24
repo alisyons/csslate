@@ -8,6 +8,8 @@ export class SharedService {
   cssSolution: Array<string> = [];
   stitchedSolution = '';
 
+  startingChapter: number = 1;
+
   solution = '';
 
   isSolutionValid: boolean = false;
