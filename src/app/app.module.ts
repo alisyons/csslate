@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TextFieldModule} from "@angular/cdk/text-field";
 import {CookieService} from "ngx-cookie-service";
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {CookieService} from "ngx-cookie-service";
     SlateComponent,
     InstructionsComponent,
     EditorComponent,
-    BoardComponent
+    BoardComponent,
+    InfoComponent
   ],
     imports: [
         BrowserModule,
