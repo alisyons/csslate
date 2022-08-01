@@ -31,7 +31,7 @@ export class SlateComponent implements OnInit {
       this.getLevel(this.sharedService.startingChapter, 1);
     }
 
-    this.checkLastOrFirstChapter();
+    this.checkLastOrFirstLevel();
   }
 
   private setLevelArray() {
@@ -50,7 +50,6 @@ export class SlateComponent implements OnInit {
           solution: xx.solution
         };
     })
-
     this.maxChapter();
   }
 
@@ -75,11 +74,12 @@ export class SlateComponent implements OnInit {
 
       if (foundLevel.length === 1) {
         this.currentLevel = foundLevel[0];
-        this.checkLastOrFirstChapter();
+        this.checkLastOrFirstLevel();
       }
     }
   }
 
+  //outputs maximum chapter number in the entire level script
   public maxChapter(): number {
     let chapters: Array<number> = [];
 
@@ -90,6 +90,8 @@ export class SlateComponent implements OnInit {
     return Math.max.apply(null, chapters);
   }
 
+  // outputs the highest level number in a specific ch (chapter number)
+  // use maxLevel(maxChapter()) to find the last level of the entire game
   public maxLevel(ch: number): number {
     let levelNumbers: Array<number> = [];
     let levelsInChapter;
@@ -100,14 +102,15 @@ export class SlateComponent implements OnInit {
       levelNumbers.push(l.level);
     })
     return Math.max.apply(null, levelNumbers);
-
   }
 
+  // reacts to dropdown change in the description component
   public onSelectChapter(chapter: number) {
     this.getLevel(chapter, 1);
   }
 
-  public checkLastOrFirstChapter() {
+  // checks if current level is first or last, sets isFirstLevel or isLastLevel to true if yes
+  public checkLastOrFirstLevel() {
     if (this.currentLevel) {
       if(this.currentLevel.chapter === 1 && this.currentLevel.level === 1) {
         this.isFirstLevel = true;
@@ -117,6 +120,7 @@ export class SlateComponent implements OnInit {
     }
   }
 
+  // react to button click on "next level"
   public onNextLevel(level: Level) {
     this.isFirstLevel = false;
     this.sharedService.solution = '';
@@ -131,14 +135,15 @@ export class SlateComponent implements OnInit {
     if (this.currentLevel) {
       if(this.currentLevel.level < maxLevel) {
         this.getLevel(level.chapter, level.level + 1);
-        this.checkLastOrFirstChapter();
+        this.checkLastOrFirstLevel();
       } else if (this.currentLevel.chapter < this.maxChapter()) {
         this.getLevel(level.chapter + 1, level.level = 1);
-        this.checkLastOrFirstChapter();
+        this.checkLastOrFirstLevel();
       }
     }
   }
 
+  // react to button click on "previous level"
   public onPreviousLevel(level: Level) {
     this.isLastLevel = false;
     this.sharedService.solution = '';
@@ -149,10 +154,10 @@ export class SlateComponent implements OnInit {
     if (this.currentLevel) {
       if (this.currentLevel.level > 1) {
         this.getLevel(level.chapter, level.level - 1);
-        this.checkLastOrFirstChapter();
+        this.checkLastOrFirstLevel();
       } else if (this.currentLevel.chapter > 1) {
         this.getLevel(level.chapter - 1, level.level = this.maxLevel(level.chapter-1));
-        this.checkLastOrFirstChapter();
+        this.checkLastOrFirstLevel();
       }
     }
   }
